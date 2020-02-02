@@ -7,6 +7,7 @@ import {
   IonLabel,
   IonList,
   IonPage,
+  IonThumbnail,
   IonTitle,
   IonToolbar
 } from '@ionic/react'
@@ -27,18 +28,16 @@ const Tab3Page: React.FC = () => {
       <IonContent>
         <IonList>
           {photos.map(p => (
-            <IonItem key={p.filepath}>
-              <IonAvatar style={{ marginRight: '1rem' }}>
+            <IonItem>
+              <IonThumbnail>
                 <img src={p.base64 ?? p.webviewPath} alt="" />
-              </IonAvatar>
+              </IonThumbnail>
               <IonLabel>
-                <p>
-                  <b>File name: </b>
+                <h2>
+                  File name:
                   {p.filepath}
-                </p>
-                <p>
-                  <b>Date created</b>: {p.date ? p.date : null}
-                </p>
+                </h2>
+                <p>Date created: {p.date ? p.date : null}</p>
               </IonLabel>
             </IonItem>
           ))}
